@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+nav {
+  height: 20vh;
+  width: 100%;
+  /* background-image: linear-gradient(to right, #80c56b, #fd9c9c); */
+  color: #000;
+  /* margin-bottom: 20px; */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navitems {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navitems h2 {
+  font-size: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navitems button {
+  width: 30%;
+  height: 10vh;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  background-color: #479c8e;
+  font-family: serif;
+  font-size: 30px;
+  margin: auto 100px;
+}
+.fetchbtn{
+  background-color: #64a8cf;
+  
+}
+.fetchbtn:hover {
+  background-color: #fff;
+}
+.userdatacontainer {
+  width: 100%;
+  height: fit-content;
+  background-image: radial-gradient(to bottom right, #c2deff, #64adcf);
+}
+#main {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  /* padding-top: 10vh; */
+}
+.name:hover {
+  color: blue;
+}
+
+.avatar {
+  border-radius: 30%;
+}
+
+.profile_cont {
+  border-radius: 15%;
+  /* background-image: radial-gradient(#a3468d, #ffece6); */
+  margin: 5px;
+  padding: 10px;
+  width: 30%;
+  text-align: center;
+  transition: transform ease 0.2s;
+  opacity: 0.8;
+  margin-top: 8vh;
+}
+
+.profile_cont:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
