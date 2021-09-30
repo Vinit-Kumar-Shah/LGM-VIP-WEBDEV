@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavbarComp } from './nav';
 import { CardComp } from './cards';
 import { Container, Row } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -11,7 +11,7 @@ function App(props) {
   const [isUser, setIsUser] = useState(false);
   const [userList, setUserList] = useState([]);
   const [error, setError] = useState(false)
-  
+  const delay = 5;
   const getUsers = () =>{
       axios.get('https://reqres.in/api/users?page=1')
         .then((user) => {
@@ -22,8 +22,18 @@ function App(props) {
           setError(error.response.data)
         })
       }
+      const [show, setShow] = useState(false);
 
-  return (
+      useEffect(
+        () => {
+          let timer1 = setTimeout(() => setShow(true), delay * 1000);
+          return () => {
+            clearTimeout(timer1);
+          };
+        },
+        []
+      );
+  return show ? (
     <div className="App">
     <NavbarComp onClick={getUsers} />
     <div className={isUser ? "center-area d-none" : "center-area"}>
@@ -45,7 +55,16 @@ function App(props) {
       })}
     </Row>
     </Container>
-  </div> );
+  </div> ):
+  (
+    <div id="main" align="center">
+      <img
+        src="https://acegif.com/wp-content/uploads/loading-9.gif"
+        alt="Loaading..."
+        className="loader"
+      />
+    </div>
+  );
 }
 
 export default App;
